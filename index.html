@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="course-release" content="20261103-zip-import1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>智探油气 · 石油勘探开发智能化探索</title>
+<meta name="description" content="按石油作业链条逐环节展示可被深度学习改造的候选场景，标注 AI 介入点、数据条件与难度等级；带可运行的案例示范。">
+<script>
+if (/^#\/stage\/mudlogging(?:\?|$)/.test(location.hash)) {
+  var mudloggingPreload = document.createElement('link');
+  mudloggingPreload.rel = 'preload'; mudloggingPreload.as = 'image';
+  mudloggingPreload.href = 'assets/images/mudlogging-process.webp';
+  mudloggingPreload.setAttribute('imagesrcset', 'assets/images/mudlogging-process-small.webp 768w, assets/images/mudlogging-process.webp 1448w');
+  mudloggingPreload.setAttribute('imagesizes', '(max-width:700px) calc(100vw - 28px), 1448px');
+  mudloggingPreload.setAttribute('fetchpriority', 'high');
+  document.head.appendChild(mudloggingPreload);
+}
+</script>
+
+<link rel="stylesheet" href="assets/core/tokens.css?v=20261102-wide-warm1">
+<link rel="stylesheet" href="assets/core/layout.css?v=20261102-wide-warm1">
+<link rel="stylesheet" href="assets/core/ui.css?v=20261102-wide-warm1">
+<link rel="stylesheet" href="assets/core/home.css?v=20261102-wide-warm1">
+<link rel="stylesheet" href="assets/search/site-search.css?v=20261109-j1">
+<link rel="stylesheet" href="assets/nav/navduo.css?v=20261110-p1">
+<link rel="stylesheet" href="assets/core/course-outline.css?v=20261102-wide-warm1">
+<link rel="stylesheet" href="assets/core/mudlogging.css?v=20261102-wide-warm1">
+<link rel="stylesheet" href="assets/geology/geology.css?v=20261102-wide-warm1">
+<link rel="stylesheet" href="assets/geology/reference.css?v=20261102-wide-warm1">
+<link rel="stylesheet" href="assets/drilling/stage-map.css?v=20261102-field-templates2">
+<link rel="stylesheet" href="assets/welllog/stage-map.css?v=20261102-field-templates2">
+<link rel="stylesheet" href="assets/cementing/stage-map.css?v=20261103-three-stages1">
+<link rel="stylesheet" href="assets/completion/stage-map.css?v=20261103-three-stages1">
+<link rel="stylesheet" href="assets/perforation/stage-map.css?v=20261103-three-stages1">
+<link rel="icon" href="assets/images/favicon.svg?v=20261102-wide-warm1" type="image/svg+xml">
+<link rel="stylesheet" href="assets/seismic/seismic.css?v=20261102-seismic5">
+<link rel="stylesheet" href="assets/operations/operations.css?v=20261103-op2">
+<link rel="stylesheet" href="assets/downstream/downstream.css?v=20261103-ds1">
+<link rel="stylesheet" href="assets/core/legibility.css?v=20261109-l1">
+</head>
+<body>
+
+<div id="view">
+  <main class="wrap" style="padding:120px 0">
+    <div class="empty"><b>正在加载</b>如果这行字一直不消失，说明脚本没有正确执行，
+    请检查浏览器控制台。</div>
+  </main>
+</div>
+
+<noscript>
+  <div class="wrap" style="padding:80px 0">
+    <div class="empty"><b>需要启用 JavaScript</b>本站是纯前端渲染的，所有页面由本地脚本生成。</div>
+  </div>
+</noscript>
+
+<!-- =========================================================
+     脚本加载顺序（改这里之前先读 docs/如何添加新案例.md）
+     1. data.js         场景元数据
+     2. registry.js     案例注册表
+     3. kit.js          渲染工具箱
+     4. cases/*         案例插件 —— 新增案例加在这一段
+     5. case-demo-host  示范宿主（整页 iframe / 模块 Shadow DOM）
+     6. case-upload     案例包导入（读 localStorage，必须在 shell 前）
+     7. admin.js        本机管理功能
+     8. course-outline.js 五阶段课程大纲与图解动效
+     9. home.js         首页地图与交互探索
+     10. mudlogging.js  录井环节交互图解
+     11. shell.js       外壳，必须最后
+     ========================================================= -->
+<script src="assets/data.js?v=20261105-theme-name1"></script>
+<script src="assets/core/registry.js?v=20261102-wide-warm1"></script>
+<script src="assets/core/kit.js?v=20261102-wide-warm1"></script>
+
+<script src="assets/cases/m1-cuttings.case.js?v=20261102-m1-smart-demo"></script>
+<script src="assets/cases/m2-gas.case.js?v=2.1.0"></script>
+<script src="assets/cases/m3-fluorescence.case.js?v=2.1.0"></script>
+<script src="assets/cases/m4-drilling.case.js?v=2.1.0"></script>
+<script src="assets/cases/m5-report.case.js?v=2.1.0"></script>
+<!-- ↑ 新案例加在这里：<script src="assets/cases/你的案例.case.js"></script> -->
+<script src="assets/geology/content.js?v=20261102-wide-warm1"></script>
+<script src="assets/geology/experiments.js?v=20261102-wide-warm1"></script>
+<script src="assets/geology/models.js?v=20261102-wide-warm1"></script>
+<script src="assets/geology/core.js?v=20261102-wide-warm1"></script>
+<script src="assets/geology/stage.js?v=20261102-geo4"></script>
+<script src="assets/geology/teaching.js?v=20261102-wide-warm1"></script>
+<script src="assets/geology/lessons.js?v=20261102-wide-warm1"></script>
+<script src="assets/cases/geology.case.js?v=20261102-wide-warm1"></script>
+
+<!-- 钻井与测井：录井图解模板首页，十个独立案例包的三个章节文件。 -->
+<script src="assets/drilling/content.js?v=20261102-field-templates2"></script>
+<script src="assets/drilling/engine.js?v=20261102-field-templates2"></script>
+<script src="assets/drilling/data.js?v=20261102-field-templates2"></script>
+<script src="assets/drilling/stage.js?v=20261102-field-templates2"></script>
+<script src="assets/drilling/lessons.js?v=20261102-field-templates2"></script>
+<script src="assets/cases/drilling.case.js?v=20261102-field-templates2"></script>
+<script src="assets/welllog/content.js?v=20261102-field-templates2"></script>
+<script src="assets/welllog/data.js?v=20261102-field-templates2"></script>
+<script src="assets/welllog/models.js?v=20261102-field-templates2"></script>
+<script src="assets/welllog/core.js?v=20261102-field-templates2"></script>
+<script src="assets/welllog/stage.js?v=20261102-field-templates2"></script>
+<script src="assets/welllog/lessons.js?v=20261102-field-templates2"></script>
+<script src="assets/cases/welllog.case.js?v=20261102-field-templates2"></script>
+
+<!-- 固井、完井与射孔：三张图解首页，十二个独立案例包。CO2/P1共享冻结的响应模型。 -->
+<script src="assets/shared-perforation/data.js?v=20261103-three-stages1"></script>
+<script src="assets/shared-perforation/core.js?v=20261103-three-stages1"></script>
+<script src="assets/cementing/content.js?v=20261103-three-stages1"></script>
+<script src="assets/cementing/core.js?v=20261103-three-stages1"></script>
+<script src="assets/cementing/data.js?v=20261103-three-stages1"></script>
+<script src="assets/cementing/lesson-figures.js?v=20261103-three-stages1"></script>
+<script src="assets/cementing/lessons.js?v=20261103-three-stages1"></script>
+<script src="assets/cementing/stage.js?v=20261103-three-stages1"></script>
+<script src="assets/cases/cementing.case.js?v=20261103-three-stages1"></script>
+<script src="assets/completion/content.js?v=20261103-three-stages1"></script>
+<script src="assets/completion/data.js?v=20261103-three-stages1"></script>
+<script src="assets/completion/core.js?v=20261103-three-stages1"></script>
+<script src="assets/completion/lessons.js?v=20261103-three-stages1"></script>
+<script src="assets/completion/stage.js?v=20261103-three-stages1"></script>
+<script src="assets/cases/completion.case.js?v=20261103-three-stages1"></script>
+<script src="assets/perforation/content.js?v=20261103-three-stages1"></script>
+<script src="assets/perforation/data.js?v=20261103-three-stages1"></script>
+<script src="assets/perforation/core.js?v=20261103-three-stages1"></script>
+<script src="assets/perforation/lessons.js?v=20261103-three-stages1"></script>
+<script src="assets/perforation/stage.js?v=20261103-three-stages1"></script>
+<script src="assets/cases/perforation.case.js?v=20261103-three-stages1"></script>
+
+<!-- 上传的案例包（localStorage）在这里恢复注册，必须在 shell.js 之前 -->
+<script src="assets/seismic/content.js?v=20261102-seismic5"></script>
+<script src="assets/seismic/data.js?v=20261102-seismic5"></script>
+<script src="assets/seismic/models.js?v=20261102-seismic5"></script>
+<script src="assets/seismic/core.js?v=20261102-seismic5"></script>
+<script src="assets/seismic/loader.js?v=20261102-seismic5"></script>
+<script src="assets/seismic/stage.js?v=20261102-seismic5"></script>
+<script src="assets/seismic/lessons.js?v=20261102-seismic5"></script>
+<script src="assets/cases/seismic.case.js?v=20261102-seismic5"></script>
+<script src="assets/operations/content.js?v=20261103-op2"></script>
+<script src="assets/operations/core.js?v=20261103-op2"></script>
+<script src="assets/operations/experiments.js?v=20261103-op2"></script>
+<script src="assets/operations/loader.js?v=20261103-op2"></script>
+<script src="assets/operations/stage.js?v=20261103-op2"></script>
+<script src="assets/operations/lessons.js?v=20261103-op2"></script>
+<script src="assets/cases/bundled/_stage-text.js?v=20261109-j1"></script>
+<script src="assets/cases/operations.case.js?v=20261103-op2"></script>
+<script src="assets/downstream/content.js?v=20261103-ds1"></script>
+<script src="assets/downstream/core.js?v=20261103-ds1"></script>
+<script src="assets/downstream/nlp.js?v=20261103-ds1"></script>
+<script src="assets/downstream/experiments.js?v=20261103-ds1"></script>
+<script src="assets/downstream/loader.js?v=20261103-ds1"></script>
+<script src="assets/downstream/stage.js?v=20261103-ds1"></script>
+<script src="assets/downstream/lessons.js?v=20261103-ds1"></script>
+<script src="assets/cases/bundled/_stage-text.js?v=20261109-j1"></script>
+<script src="assets/cases/downstream.case.js?v=20261103-ds1"></script>
+<script src="assets/core/case-demo-host.js?v=20261102-wide-warm1"></script>
+<script src="assets/vendor/fflate-0.8.2/fflate.min.js"></script>
+<script src="assets/core/case-zip.js?v=20261103-zip-import1"></script>
+<script src="assets/cases/bundled/e1-jiaolailin.js?v=20261109-j1"></script>
+<script src="assets/cases/bundled/pr4-jiaolailin.js?v=20261109-j1"></script>
+<script src="assets/cases/bundled/r1-jiaolailin.js?v=20261109-j1"></script>
+<script src="assets/cases/bundled/r4-jiaolailin.js?v=20261109-j1"></script>
+<script src="assets/cases/bundled/t1-jiaolailin.js?v=20261109-j1"></script>
+<script src="assets/cases/bundled/t2-jiaolailin.js?v=20261109-j1"></script>
+<script src="assets/cases/bundled/t4-jiaolailin.js?v=20261109-j1"></script>
+<script src="assets/cases/bundled/wo4-jiaolailin.js?v=20261109-j1"></script>
+<script src="assets/core/case-upload.js?v=20261103-zip-import1"></script>
+
+<script src="assets/core/admin.js?v=20261110-p2"></script>
+
+<script src="assets/core/river.js?v=20261102-wide-warm1"></script>
+<script src="assets/core/course-outline.js?v=20261110-p1"></script>
+<script src="assets/nav/journey2d.js?v=20261109-j1"></script>
+<script src="assets/nav/navduo-data.js?v=20261109-j1"></script>
+<script src="assets/nav/navduo.js?v=20261110-p1"></script>
+<script src="assets/core/home.js?v=20261110-p1"></script>
+<script src="assets/core/mudlogging.js?v=20261102-wide-warm1"></script>
+<script src="assets/search/site-search.js?v=20261109-j1"></script>
+<script src="assets/core/shell.js?v=20261105-theme-name1"></script>
+
+</body>
+</html>

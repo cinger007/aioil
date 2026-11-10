@@ -1,0 +1,43 @@
+/* =========================================================
+   整合版：可读性修正（最后加载）
+   全站小字已统一放大到至少 13px，浅色字已加深；
+   这里补上无法逐条改写的情况：用变量着色的彩色小字、随视口缩放的标签、表格挤压换行。
+   ========================================================= */
+
+/* 环节页图画卡片：编号、"查看讲解与案例"、图上浮动标签原用浅彩色，混入深墨色提高对比度 */
+[class$="-read-link"], [class$="-read-id"],
+[class*="-spot-tag"] > b, [class*="-spot-tag"] > span { color: color-mix(in srgb, var(--tech, #b95739) 58%, #2b201c) !important; }
+[class$="-spot-tag"] { font-size: clamp(13px, .95vw, 15px) !important; color: #4a3a33 !important; }
+.geo-spot-hint { color: color-mix(in srgb, var(--scene, #b95739) 58%, #2b201c) !important; }
+
+/* 标签与徽标 */
+.ok-mark { color: #2f6b4c; }
+.dtag[data-d="低"] { color: #2f6b4c; }
+.dtag[data-d="中"] { color: #6e5210; }
+.dtag[data-d="高"] { color: #8e3a2a; }
+.req { color: #8e3a2a; }
+.mtag b { color: inherit; }
+.course-eyebrow { color: #8a5a3c; }
+
+/* 案例库表格：字号变大后版本、日期、"通过""打开""删除"不再折行 */
+.sys-table td:nth-child(n+4), .sys-table th:nth-child(n+4) { white-space: nowrap; }
+.sys-table td:last-child a, .sys-table td:last-child button { white-space: nowrap; }
+
+/* 接入指南里的代码注释 */
+.tree .cm, pre .c, code .c { color: #5d6b66; }
+
+/* 深色页脚：原来的灰褐小字在深底上也看不清，改亮 */
+.atlas-footer p, .atlas-footer-bottom { color: #d9c8bc; }
+.req, .opt { font-size: 14px; }
+
+/* 手机宽度：接入指南里的代码块和字段表放大后会撑宽页面，改为在块内横向滚动 */
+@media (max-width: 720px) {
+  .wrap pre, .wrap .code, .wrap .tree { overflow-x: auto; max-width: 100%; }
+  .wrap table.contract { display: block; overflow-x: auto; max-width: 100%; }
+  .wrap .step-body, .wrap .step > div { min-width: 0; }
+}
+@media (max-width: 720px) {
+  .gstep { grid-template-columns: minmax(0, 1fr) !important; }
+  .gstep > * { min-width: 0; }
+  .gstep pre, .gstep code { white-space: pre; overflow-x: auto; display: block; max-width: 100%; }
+}
