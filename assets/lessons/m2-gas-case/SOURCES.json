@@ -1,0 +1,94 @@
+{
+  "checked": "2026-11-02",
+  "professional": {
+    "title": "SLB · 录井原理与接单根气",
+    "url": "https://www.slb.com/resource-library/oilfield-review/defining-series/defining-mud-logging"
+  },
+  "professionalReferences": [
+    [
+      "SLB · 地面录井与气体测量",
+      "https://www.slb.com/resource-library/oilfield-review/defining-series/defining-mud-logging"
+    ],
+    [
+      "SLB · 背景气",
+      "https://glossary.slb.com/en/terms/b/background_gas"
+    ],
+    [
+      "SLB · 接单根气",
+      "https://glossary.slb.com/en/terms/c/connection_gas"
+    ],
+    [
+      "SLB · 循环气",
+      "https://glossary.slb.com/en/terms/r/recycled_gas"
+    ],
+    [
+      "SLB · 迟到时间",
+      "https://glossary.slb.com/en/terms/l/lag_time"
+    ]
+  ],
+  "teachingReference": {
+    "url": "https://cinger007.github.io/saphirv3/case-001/index.html#bg",
+    "use": "Pedagogical sequence only: field mechanism, measurement, interpretation, then algorithms."
+  },
+  "papers": [
+    {
+      "date": "2026",
+      "authors": "Silva 等",
+      "title": "Enhancing operational decision-making in hydrocarbon exploration drilling using machine learning for gas data interpretation",
+      "journal": "Scientific Reports",
+      "doi": "10.1038/s41598-026-57038-8",
+      "url": "https://doi.org/10.1038/s41598-026-57038-8",
+      "input": "气测、工况与PVT（压力—体积—温度）资料",
+      "method": "机器学习建立气体代表性与钻头热机械影响的预测曲线。",
+      "output": "沿井深的解释辅助曲线",
+      "boundary": "研究有实验室参考资料；本课没有PVT数据，不复现其流体解释。"
+    },
+    {
+      "date": "2026.09",
+      "authors": "Sy 等",
+      "title": "Wide-range gas analysis of C1–C5 alkanes using a machine learning-enhanced dual-path optical cell",
+      "journal": "Sensors and Actuators B: Chemical",
+      "doi": "10.1016/j.snb.2026.139825",
+      "url": "https://doi.org/10.1016/j.snb.2026.139825",
+      "input": "多组分气体的吸收光谱",
+      "method": "从多组分混合光谱估计不同轻烃的浓度。",
+      "output": "C1—C5 组分估计",
+      "boundary": "研究属于仪器侧光谱反演；本课读取已记录的气测与工况，不复现浓度反演。"
+    }
+  ],
+  "methodSelection": {
+    "id": "gru-forecast",
+    "name": "GRU 连续气测预测",
+    "family": "时序分析 · 预测残差",
+    "input": "当前时刻之前最多12分钟的6通道记录",
+    "output": "下一分钟通道预测与观测残差",
+    "why": "总览将M2划为时序分析。气峰的升降与持续时间都依赖先后顺序；GRU逐分钟传递状态，用过去预测下一分钟，再找偏离预期的变化。",
+    "limit": "真实资料没有气测事件标签；预测残差大可能来自作业或测量变化，不能直接解释为油气发现。",
+    "stages": [
+      "之前的连续记录",
+      "GRU顺序传递状态",
+      "预测下一分钟",
+      "与实际观测比较"
+    ],
+    "notes": [
+      "最多12步×6通道",
+      "单向、12维状态",
+      "当前观测不入输入",
+      "按预测残差筛候选"
+    ],
+    "source": "https://docs.pytorch.org/docs/stable/generated/torch.nn.GRU.html",
+    "domain": "ts"
+  },
+  "syntheticMethod": null,
+  "drawings": "Original SVG mechanism drawings, not measured field geometry.",
+  "data": "本例使用固定来源版本的Volve真实观测，没有独立事件或地质层界标签。",
+  "realData": [
+    {
+      "url": "https://raw.githubusercontent.com/Sky370/DrillDash/76b94b76efe7eb0d66faabc11305906fd50d8ee8/demo/store/Norway-Statoil-NO-15-9-F-1-C/3/drilling.parquet",
+      "sha256": "f38ac0f882355b6747cabea39f2539ac2cf9054c712f39646d60a1988d47db78",
+      "bytes": 11327588,
+      "source_commit": "76b94b76efe7eb0d66faabc11305906fd50d8ee8"
+    }
+  ],
+  "browserModel": null
+}

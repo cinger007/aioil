@@ -1,0 +1,114 @@
+{
+  "retrieved": "2026-10-28",
+  "purpose": "Background teaching examples only; excluded from the 66 classification samples",
+  "papers": {
+    "tolstaya": {
+      "authors": "Ekaterina Tolstaya, Anuar Shakirov, Mokhles Mezghani & Sergey Safonov",
+      "year": 2023,
+      "title": "Fast Reservoir Characterization with AI-Based Lithology Prediction Using Drill Cuttings Images and Noisy Labels",
+      "journal": "Journal of Imaging",
+      "citation": "9(7), 126",
+      "doi": "10.3390/jimaging9070126",
+      "articleUrl": "https://www.mdpi.com/2313-433X/9/7/126",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    "caja": {
+      "authors": "Miguel Ángel Caja et al.",
+      "year": 2023,
+      "title": "Digital Rock Physics in Cuttings Using High-Resolution Thin Section Scan Images",
+      "journal": "Minerals",
+      "citation": "13(9), 1140",
+      "doi": "10.3390/min13091140",
+      "articleUrl": "https://www.mdpi.com/2075-163X/13/9/1140",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  },
+  "assets": [
+    {
+      "id": "cuttings-types",
+      "paper": "tolstaya",
+      "figure": "4",
+      "file": "cuttings-types.webp",
+      "thumbnail": "cuttings-types-thumb.webp",
+      "width": 960,
+      "height": 769,
+      "sourceSize": [
+        2027,
+        1624
+      ],
+      "sourceFilename": "tolstaya-figure-4.png",
+      "figureUrl": "https://pub.mdpi-res.com/jimaging/jimaging-09-00126/article_deploy/html/images/jimaging-09-00126-g004.png",
+      "sourceSha256": "425e6ef926e5508ce5b25611b6d7e31961fc741b0be8a07b54866d42e7f607e0",
+      "sha256": "e6b404107a78da2381390ef210a5cfa2e634803d29f4ce7cc35ba6a8dddcd8dd",
+      "thumbnailSha256": "14d6e0a873eb8bb80e1a162dd8ad24f9e85d42bad741499992f606925dc84534",
+      "cropPixels": null,
+      "processing": "Full original figure, aspect-preserving resize and WebP encoding; original labels and scale retained; no retouching or generative reconstruction",
+      "note": "Full figure: nine labeled lithotype examples; Sand and Dolomite are the original labels."
+    },
+    {
+      "id": "cuttings-variation",
+      "paper": "tolstaya",
+      "figure": "6",
+      "file": "cuttings-variation.webp",
+      "thumbnail": "cuttings-variation-thumb.webp",
+      "width": 1140,
+      "height": 384,
+      "sourceSize": [
+        2307,
+        777
+      ],
+      "sourceFilename": "tolstaya-figure-6.png",
+      "figureUrl": "https://pub.mdpi-res.com/jimaging/jimaging-09-00126/article_deploy/html/images/jimaging-09-00126-g006.png",
+      "sourceSha256": "10e9969b409b455bba60025e0a60f66433734fe6ea20c2db1803daa5512741e1",
+      "sha256": "3526bbe308aaa5dbdc6ec2f25429856ea115d6e941588c3153854c0f23062f01",
+      "thumbnailSha256": "37e68872f5a8f492ba3b827e7fad5a8dc5cacd3ea0e64ff255c3b13802964874",
+      "cropPixels": null,
+      "processing": "Full original figure, aspect-preserving resize and WebP encoding; original labels and scale retained; no retouching or generative reconstruction",
+      "note": "Full figure: siltstone examples from different depth intervals and formations."
+    },
+    {
+      "id": "cuttings-contamination",
+      "paper": "tolstaya",
+      "figure": "8",
+      "file": "cuttings-contamination.webp",
+      "thumbnail": "cuttings-contamination-thumb.webp",
+      "width": 1140,
+      "height": 356,
+      "sourceSize": [
+        2311,
+        721
+      ],
+      "sourceFilename": "tolstaya-figure-8.png",
+      "figureUrl": "https://pub.mdpi-res.com/jimaging/jimaging-09-00126/article_deploy/html/images/jimaging-09-00126-g008.png",
+      "sourceSha256": "e82f3d44249868d301967e7528358b95b14da148e9f1c3e0709b3ea73d12ac60",
+      "sha256": "d176a60c0ce5da100f63449f85f75b7338fd82c7aad4e913b0500c72220cd097",
+      "thumbnailSha256": "f2c9ca6275119e966bbfa748ceb90d1a8585a079f8f2c41161d8c3a72ecf2020",
+      "cropPixels": null,
+      "processing": "Full original figure, aspect-preserving resize and WebP encoding; original labels and scale retained; no retouching or generative reconstruction",
+      "note": "Full figure: examples of drill-cutting images affected by mud contamination."
+    },
+    {
+      "id": "cuttings-thinsection",
+      "paper": "caja",
+      "figure": "9",
+      "file": "cuttings-thinsection.webp",
+      "thumbnail": "cuttings-thinsection-thumb.webp",
+      "width": 550,
+      "height": 811,
+      "sourceSize": [
+        1787,
+        2634
+      ],
+      "sourceFilename": "caja-figure-9.png",
+      "figureUrl": "https://pub.mdpi-res.com/minerals/minerals-13-01140/article_deploy/html/images/minerals-13-01140-g009.png",
+      "sourceSha256": "0ff3156ae4f097796cdeb535c07fbac9cce18977e27bbb703b079d5bdd9e664c",
+      "sha256": "883f315b0147fd3fe73101025f53b4b4717b9da591fc171cf3b8199def9722da",
+      "thumbnailSha256": "89b9c8a432b3adc8a94fd2dcec470c34040d2865070582f7c2cf234dd34d9b96",
+      "cropPixels": null,
+      "processing": "Full original figure, aspect-preserving resize and WebP encoding; original labels and scale retained; no retouching or generative reconstruction",
+      "note": "Full figure: real oil/gas well cuttings in thin-section scans, original 12 mm scale retained; no prior sieving."
+    }
+  ]
+}

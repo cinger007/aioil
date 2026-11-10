@@ -1,0 +1,107 @@
+{
+  "checked": "2026-11-02",
+  "professional": {
+    "title": "SLB · 录井的多源记录与解释",
+    "url": "https://www.slb.com/resource-library/oilfield-review/defining-series/defining-mud-logging"
+  },
+  "professionalReferences": [
+    [
+      "SLB · 综合录井图的组成",
+      "https://www.slb.com/resource-library/oilfield-review/defining-series/defining-mud-logging"
+    ],
+    [
+      "AAPG · 显示评价与证据",
+      "https://wiki.aapg.org/Show_evaluation"
+    ],
+    [
+      "SLB · MD定义",
+      "https://glossary.slb.com/en/terms/m/measured_depth"
+    ],
+    [
+      "SLB · TVD定义",
+      "https://glossary.slb.com/en/terms/t/true_vertical_depth"
+    ]
+  ],
+  "teachingReference": {
+    "url": "https://cinger007.github.io/saphirv3/case-001/index.html#bg",
+    "use": "Pedagogical sequence only: field mechanism, measurement, interpretation, then algorithms."
+  },
+  "papers": [
+    {
+      "date": "2026",
+      "authors": "周光元等",
+      "title": "海上油田录井专有大语言模型OffshoreGPT的构建与部署",
+      "journal": "录井工程",
+      "doi": "10.3969/j.issn.1672-9803.2026.01.001",
+      "url": "https://doi.org/10.3969/j.issn.1672-9803.2026.01.001",
+      "input": "录井领域段落与问答资料",
+      "method": "通过领域训练与微调适应专业术语、问答和作业语境。",
+      "output": "专业问答与作业事件提示",
+      "boundary": "本课用小型BiGRU讲清语句归类，不部署或复现OffshoreGPT。"
+    },
+    {
+      "date": "2025.02",
+      "authors": "Li 等",
+      "title": "A Report Generation System for Well Logging Industry Based on Large Language Model and Retrieval Augmented Generation",
+      "journal": "IPTC conference paper",
+      "doi": "10.2523/IPTC-24775-EA",
+      "url": "https://doi.org/10.2523/IPTC-24775-EA",
+      "input": "测井解释知识与报告资料",
+      "method": "检索增强与本地大语言模型结合，组织解释报告章节。",
+      "output": "报告初稿",
+      "boundary": "研究对象是测井解释报告；本课借鉴事实关联，数值由模板绑定。"
+    },
+    {
+      "date": "2026.08",
+      "authors": "Zhang 等",
+      "title": "A Dual-Teacher Distilled MoE Agent for Complex Industrial Document Analysis",
+      "journal": "Applied Sciences",
+      "doi": "10.3390/app16168089",
+      "url": "https://doi.org/10.3390/app16168089",
+      "input": "钻井及录井等跨文档资料",
+      "method": "蒸馏、工具调用与MoE定位原始证据，判断数据一致性。",
+      "output": "证据位置与一致性判断",
+      "boundary": "这是报告核对研究；本课只做字段ID关联，没有运行其MoE或智能体。"
+    }
+  ],
+  "methodSelection": {
+    "id": "bigru-fact-template",
+    "name": "BiGRU 分类＋字段模板",
+    "family": "语句分类 / 有来源的成文",
+    "input": "中文原句与独立事实字段",
+    "output": "事项类别与有出处的摘要",
+    "why": "语句分类要区分否定、转折和前后语境，使用双向GRU；井段与数值由字段抽取和模板处理，不交给分类器自由编写。",
+    "limit": "BiGRU只适配当前中文教学语句，模板不会补写缺少证据的地质结论。",
+    "stages": [
+      "原始中文语句",
+      "双向GRU编码",
+      "事项类别",
+      "字段绑定后成文"
+    ],
+    "notes": [
+      "最多96个字符",
+      "两方向各24维",
+      "保留错误与低分",
+      "数字逐项有来源"
+    ],
+    "source": "https://arxiv.org/abs/1406.1078",
+    "domain": "nlp"
+  },
+  "syntheticMethod": null,
+  "drawings": "Original SVG mechanism drawings, not measured field geometry.",
+  "data": "中文合成语句按模板组划分。BiGRU只做事项分类，摘要按来源字段组装；未适配的英文真实日报不参与该中文模型的性能评价。",
+  "realData": null,
+  "browserModel": {
+    "file": "m5.onnx",
+    "sha256": "2d57fee0fdc5f3696a7de26646aef7adff49e863951f156d221f81bae94ec446",
+    "checkpointSha256": "f7d732abb491dc1b4d56572b593568cb70780ebe9dfa5d0fe482114397892f6a",
+    "bytes": 46339,
+    "testInputs": 160,
+    "maxAbsoluteError": 1.1920928955078125e-7,
+    "inputDtype": "int64",
+    "output": "probabilities",
+    "architecture": "Character embedding 24 → bidirectional GRU 24×2 → linear 4",
+    "scope": "synthetic-teaching-only",
+    "testOutputChecksum": "35756b4d662fc8d8cc843be5878a0c24550e438856050a08e713de62c45981f1"
+  }
+}

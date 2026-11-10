@@ -1,0 +1,1 @@
+window.PETRO_MODELS={};

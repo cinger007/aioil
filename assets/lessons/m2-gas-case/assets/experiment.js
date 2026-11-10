@@ -1,0 +1,1 @@
+window.LESSON_DATA=window.PETRO_REAL_DATA;
